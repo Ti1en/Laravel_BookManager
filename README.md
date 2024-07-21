@@ -4,7 +4,7 @@ A simple Book Manager application built with PHP and Laravel. This application d
 
 ## Description
 
-Laravel BookManager is a web application that allows users to manage a collection of books. Users can create, view, update, and delete book records. This project serves as an example of using Laravel for building CRUD functionalities.
+Laravel BookManager is a web application that allows users to manage a collection of books, for example, tracking the books they have read. Users can create, view, update, and delete book records, as well as add book cover images to the records. This project serves as an example of using Laravel for building CRUD functionalities.
 
 ## Features
 
@@ -12,6 +12,7 @@ Laravel BookManager is a web application that allows users to manage a collectio
 - View a list of all books
 - Edit details of an existing book
 - Delete books
+- Add book cover images
 
 ## Installation
 
