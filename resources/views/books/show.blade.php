@@ -36,6 +36,13 @@
                 {{ $book->year }}
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Cover:<Strong>
+                    <br>
+                <img src="/images/{{ $book->cover_image }}" width="100">
+            </div>
+        </div>
     </div>
 </div>
 </body>

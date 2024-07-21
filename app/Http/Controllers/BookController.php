@@ -33,9 +33,21 @@ class BookController extends Controller
             'title' => 'required',
             'author' => 'required',
             'year' => 'required|integer',
+            'cover_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Book::create($request->all());
+        $input = $request->all();
+
+        if($request->hasFile('cover_image')){
+            $image = $request->file('cover_image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+            $input['cover_image'] = $name;
+        }
+
+        Book::create($input);
+
         return redirect()->route('books.index')
                          ->with('success', 'Book created successfully.');
     }
@@ -66,9 +78,23 @@ class BookController extends Controller
             'title' => 'required',
             'author' => 'required',
             'year' => 'required|integer',
+            'cover_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $book->update($request->all());
+        $input = $request->all();
+
+        if($request->hasFile('cover_image')){
+            $image = $request->file('cover_image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+            $input['cover_image'] = $name;
+        } else {
+            $input['cover_image'] = $book->cover_image;
+        }
+
+        $book->update($input);
+
         return redirect()->route('books.index')
                          ->with('success', 'Book updated successfully.');
     }

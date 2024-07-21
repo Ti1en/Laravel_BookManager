@@ -28,7 +28,7 @@
         </div>
     @endif
 
-    <form action="{{ route('books.update',$book->id) }}" method="POST">
+    <form action="{{ route('books.update',$book->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -51,6 +51,12 @@
                     <input type="number" name="year" value="{{ $book->year }}" class="form-control" placeholder="Year">
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Cover Image:</strong>
+                    <input type="file" name="cover_image" class="form-control">
+                </div>
+            </div>  
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

@@ -30,6 +30,7 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
+            <th>Cover</th>
             <th>Title</th>
             <th>Author</th>
             <th>Year</th>
@@ -39,6 +40,7 @@
         @foreach ($books as $book)
         <tr>
             <td>{{ ++$i }}</td>
+            <td><img src="/images/{{ $book->cover_image }}" width="100"></td>
             <td>{{ $book->title }}</td>
             <td>{{ $book->author }}</td>
             <td>{{ $book->year }}</td>
